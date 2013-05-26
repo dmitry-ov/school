@@ -4,7 +4,7 @@ class CreateLearners < ActiveRecord::Migration
       t.string :surname
       t.string :name
       t.string :school
-      t.string :class
+      t.string :school_class
       t.string :phone
       t.text :note
 

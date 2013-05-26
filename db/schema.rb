@@ -11,18 +11,25 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130526184218) do
+ActiveRecord::Schema.define(:version => 20130526190122) do
 
   create_table "learners", :force => true do |t|
     t.string   "surname"
     t.string   "name"
     t.string   "school"
-    t.string   "class"
+    t.string   "school_class"
     t.string   "phone"
     t.text     "note"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
   end
+
+  create_table "learners_subjects", :id => false, :force => true do |t|
+    t.integer "learner_id"
+    t.integer "subject_id"
+  end
+
+  add_index "learners_subjects", ["learner_id", "subject_id"], :name => "index_learners_subjects_on_learner_id_and_subject_id"
 
   create_table "subjects", :force => true do |t|
     t.string   "subject"
