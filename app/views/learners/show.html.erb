@@ -16,8 +16,8 @@
 </p>
 
 <p>
-  <b>Class:</b>
-  <%= @learner.class %>
+  <b>School class:</b>
+  <%= @learner.school_class %>
 </p>
 
 <p>
@@ -25,6 +25,20 @@
   <%= @learner.phone %>
 </p>
 
+<p>
+  <b>Note:</b>
+  <%= @learner.note %>
+</p>
 
-<%= link_to 'Edit', edit_learner_path(@learner) %> |
-<%= link_to 'Back', learners_path %>
+<p>
+  <b>Предметы: </b>
+    <%@learner.subjects.each do |s|%>
+      <%= s.subject %>
+    <% end %>
+</p>
+
+
+
+
+<%= link_to 'Показать', edit_learner_path(@learner) %> |
+<%= link_to 'Назад', learners_path %>

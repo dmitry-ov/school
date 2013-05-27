@@ -6,8 +6,9 @@ describe "learners/show" do
       :surname => "Surname",
       :name => "Name",
       :school => "School",
-      :class => "Class",
-      :phone => "Phone"
+      :school_class => "School Class",
+      :phone => "Phone",
+      :note => "MyText"
     ))
   end
 
@@ -17,7 +18,8 @@ describe "learners/show" do
     rendered.should match(/Surname/)
     rendered.should match(/Name/)
     rendered.should match(/School/)
-    rendered.should match(/Class/)
+    rendered.should match(/School Class/)
     rendered.should match(/Phone/)
+    rendered.should match(/MyText/)
   end
 end

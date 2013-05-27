@@ -1,13 +1,16 @@
-<h1>Listing learners</h1>
+#encoding: utf-8
 
-<table>
+<h1>Список учеников</h1>
+
+<table border=1>
   <tr>
-    <th>Surname</th>
-    <th>Name</th>
-    <th>School</th>
-    <th>Class</th>
-    <th>Phone</th>
-    <th></th>
+    <th>Фамилия</th>
+    <th>Имя</th>
+    <th>Школа</th>
+    <th>Класс</th>
+    <th>Телефон</th>
+    <th>Примечания</th>
+    <th>Предметы</th>
     <th></th>
     <th></th>
   </tr>
@@ -17,15 +20,23 @@
     <td><%= learner.surname %></td>
     <td><%= learner.name %></td>
     <td><%= learner.school %></td>
-    <td><%= learner.class %></td>
+    <td><%= learner.school_class %></td>
     <td><%= learner.phone %></td>
-    <td><%= link_to 'Show', learner %></td>
-    <td><%= link_to 'Edit', edit_learner_path(learner) %></td>
-    <td><%= link_to 'Destroy', learner, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><%= learner.note %></td>
+    <td>
+      <% learner.subjects.each do |s|%>
+        <%= s.subject %>
+      <% end %>
+    </td>
+
+
+    <td><%= link_to 'Показать', learner %></td>
+    <td><%= link_to 'Редактировать', edit_learner_path(learner) %></td>
+    <td><%= link_to 'Удалить', learner, method: :delete, data: { confirm: 'Вы уверены ?' } %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New Learner', new_learner_path %>
+<%= link_to 'Новый ученик', new_learner_path %>

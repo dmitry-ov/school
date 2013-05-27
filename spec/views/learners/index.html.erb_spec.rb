@@ -7,15 +7,17 @@ describe "learners/index" do
         :surname => "Surname",
         :name => "Name",
         :school => "School",
-        :class => "Class",
-        :phone => "Phone"
+        :school_class => "School Class",
+        :phone => "Phone",
+        :note => "MyText"
       ),
       stub_model(Learner,
         :surname => "Surname",
         :name => "Name",
         :school => "School",
-        :class => "Class",
-        :phone => "Phone"
+        :school_class => "School Class",
+        :phone => "Phone",
+        :note => "MyText"
       )
     ])
   end
@@ -26,7 +28,8 @@ describe "learners/index" do
     assert_select "tr>td", :text => "Surname".to_s, :count => 2
     assert_select "tr>td", :text => "Name".to_s, :count => 2
     assert_select "tr>td", :text => "School".to_s, :count => 2
-    assert_select "tr>td", :text => "Class".to_s, :count => 2
+    assert_select "tr>td", :text => "School Class".to_s, :count => 2
     assert_select "tr>td", :text => "Phone".to_s, :count => 2
+    assert_select "tr>td", :text => "MyText".to_s, :count => 2
   end
 end
