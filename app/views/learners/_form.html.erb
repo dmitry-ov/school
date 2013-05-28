@@ -37,22 +37,17 @@
     <%= f.text_area :note %>
   </div>
 
-  <div class="field">
-      
-    <% for feature in Feature.find(:all) do %>
-      <br><%= check_box_tag 'feature_ids[]', feature.id,
-              @model.feature_ids.include?(feature.id) %>
-      <%= feature.name.humanize %>
-    <% end %>
-
-
-
-
-
+  <div class="list subjects">  
+    <% Subject.all.each do |s| %>
+      <div class="field">
+        <%= f.label(s.subject)  %>
+        <%= @learner.subject_ids.include?(s.id) ? check_box_tag("#{s.subject}", "#{s.subject}", true) : check_box_tag("#{s.subject}", "#{s.subject}") %> 
+      </div>
+    <% end -%>
   </div>
 
-   <div class="actions">
-    <%= f.submit "Создать ученика" %>
+  <div class="actions">
+    <%= f.submit "Сохранить" %>
   </div>
 
 
