@@ -1,9 +1,9 @@
 School::Application.routes.draw do
   resources :subjects
 
-
   resources :learners
 
+root :to=> 'learners#index'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
