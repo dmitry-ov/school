@@ -1,13 +1,13 @@
 #encoding: utf-8
 
-
 <ul class="nav nav-pills">
   <li class="active"> <%= link_to 'Список учеников', learners_path %> </li>
   <li><%= link_to 'Список предметов', subjects_path %></li>
 </ul>
 
-<table>
-  <tr>
+
+<table class="table table-bordered">
+  <thead>
     <th>Фамилия</th>
     <th>Имя</th>
     <th>Школа</th>
@@ -17,7 +17,8 @@
     <th>Предметы</th>
     <th></th>
     <th></th>
-  </tr>
+    <th></th>
+  </thead>
 
 <% @learners.each do |learner| %>
   <tr>
@@ -28,19 +29,21 @@
     <td><%= learner.phone %></td>
     <td><%= learner.note %></td>
     <td>
+      
       <% learner.subjects.each do |s|%>
-        <%= s.subject %>
+        <div class="btn btn-mini"> <%= s.subject %> </div> 
       <% end %>
+    
     </td>
 
 
-    <td><%= link_to 'Показать', learner %></td>
-    <td><%= link_to 'Редактировать', edit_learner_path(learner) %></td>
-    <td><%= link_to 'Удалить', learner, method: :delete, data: { confirm: 'Вы уверены ?' } %></td>
+  
+    <td><%= link_to 'Редактировать', edit_learner_path(learner), :class => "btn btn-info" %></td>
+    <td><%= link_to 'Удалить', learner, method: :delete, data: { confirm: 'Вы уверены ?' },:class => "btn btn-danger" %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'Новый ученик', new_learner_path %>
+<%= link_to 'Новый ученик', new_learner_path, :class => "btn" %>

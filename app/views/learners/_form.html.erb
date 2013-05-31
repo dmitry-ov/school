@@ -12,14 +12,33 @@
   <% end %>
 
   <%= simple_form_for @learner  do |f| %>
-    <%= f.input :name, label:"Имя" %>
-    <%= f.input :surname, label:"Фамилия" %>
-    <%= f.input :school, label:"Школа" %>
-    <%= f.input :school_class, label:"Класс" %>
-    <%= f.input :phone, label:"Телефон" %>
-    <%= f.input :note, label:"Примечания:" %>
-    <%= f.collection_check_boxes :subject_ids, Subject.all, :id, :subject %> 
-    <%= f.button :submit, "Создать", :class => "btn btn-primary btn-small" %>
-   <% end %>
+       <div class="row-fluid">
+          <div class="span3">
+            <%= f.input :name, label: "Имя" %>
+            <%= f.input :surname, label: "Фамилия" %>
+            <%= f.input :school, label: "Школа" %>
+            <%= f.input :school_class, label:"Класс" %>
+            <%= f.input :phone, label: "Телефон" %>
+        
+            <%= f.collection_check_boxes(:subject_ids, Subject.all, :id, :subject){|b|
+                                          b.label {b.check_box + "  " + b.text}}  %> 
+      
+            <%= f.button :submit, :class => "btn btn-primary btn-large offset10" %>
 
+
+          </div>
+          
+          <div class="span3">
+            <%= f.input :note, as: :text, label: "Примечания:" %>
+          </div>
+        
+        </div> 
+      
+      
+        
+       
+        <% end %>
 <% end %>
+
+</br>
+</br>

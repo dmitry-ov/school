@@ -3,24 +3,22 @@
   <li class="active"> <%= link_to 'Список предметов', subjects_path %></li>
 </ul>
 
-<table>
+<table border=1 cols=3 cellpadding = 5>
   <tr>
-    <th>Предмет</th>
-    <th></th>
-    <th></th>
-    <th></th>
+    <th align="center" >Предмет</th>
+    
   </tr>
 
 <% @subjects.each do |subject| %>
   <tr>
-    <td><%= subject.subject %></td>
-    <td><%= link_to 'Показать', subject %></td>
-    <td><%= link_to 'Редактировать', edit_subject_path(subject) %></td>
-    <td><%= link_to 'Удалить', subject, method: :delete, data: { confirm: 'Вы уверены ?' } %></td>
+    <td align="center"> <%= subject.subject %></td>
+    
+    <td align="center"> <%= link_to 'Редактировать', edit_subject_path(subject), :class => "btn btn-small btn-info" %> </td>
+    <td align="center"> <%= link_to 'Удалить', subject, method: :delete, data: { confirm: 'Вы уверены ?' }, :class => "btn btn-small btn-danger" %> </td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'Новый предмет', new_subject_path %>
+<%= link_to 'Новый предмет', new_subject_path, :class => "btn" %>
