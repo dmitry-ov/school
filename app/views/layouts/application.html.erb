@@ -3,15 +3,12 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <head>
   <title>School</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= stylesheet_link_tag "application", :media => "all" %>
+  <%= stylesheet_link_tag "bootstrap", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-<%= link_to 'Список учеников', learners_path %>
-<%= link_to 'Список предметов', subjects_path %>
-
 
 <%= yield %>
 

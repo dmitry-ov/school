@@ -42,13 +42,6 @@ class LearnersController < ApplicationController
   def create
     @learner = Learner.new(params[:learner])
     
-    subjects_names = Hash.new
-    Subject.all.map{|s| subjects_names.merge!({s.subject => s})}
-
-    subjects_names.each do |key, value| 
-      @learner.subjects << value  if params.include?(key)     
-    end    
-    
     respond_to do |format|
       if @learner.save
         format.html { redirect_to @learner, notice: 'Learner was successfully created.' }
@@ -64,15 +57,7 @@ class LearnersController < ApplicationController
   # PUT /learners/1.json
   def update
     @learner = Learner.find(params[:id])
-    @learner.subjects.clear
-    
-    subjects_names = Hash.new
-    Subject.all.map{|s| subjects_names.merge!({s.subject => s})}
-
-    subjects_names.each do |key, value| 
-      @learner.subjects << value if params.include?(key)      
-    end
-
+   
     respond_to do |format|
       if @learner.update_attributes(params[:learner])
         format.html { redirect_to @learner, notice: 'Learner was successfully updated.' }

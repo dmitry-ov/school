@@ -1,6 +1,10 @@
 #encoding: utf-8
 
-<h1>Список учеников</h1>
+
+<ul class="nav nav-pills">
+  <li class="active"> <%= link_to 'Список учеников', learners_path %> </li>
+  <li><%= link_to 'Список предметов', subjects_path %></li>
+</ul>
 
 <table>
   <tr>
