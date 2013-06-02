@@ -6,7 +6,7 @@
 </ul>
 
 
-<table class="table table-bordered">
+<table class="table">
   <thead>
     <th>Фамилия</th>
     <th>Имя</th>
@@ -36,10 +36,10 @@
     
     </td>
 
-
   
-    <td><%= link_to 'Редактировать', edit_learner_path(learner), :class => "btn btn-info" %></td>
-    <td><%= link_to 'Удалить', learner, method: :delete, data: { confirm: 'Вы уверены ?' },:class => "btn btn-danger" %></td>
+    <td><%= link_to 'Редактировать', edit_learner_path(learner), :class => "btn btn-info btn-small" %></td>
+    <td><%= link_to 'Удалить', learner, method: :delete, data: { confirm: 'Вы уверены ?' },:class => "btn btn-danger btn-small" %></td>
+
   </tr>
 <% end %>
 </table>
