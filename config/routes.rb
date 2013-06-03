@@ -1,9 +1,11 @@
 School::Application.routes.draw do
+  devise_for :users
+
   resources :subjects
 
   resources :learners
 
-root :to=> 'learners#index'
+  root :to=> 'learners#index'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
