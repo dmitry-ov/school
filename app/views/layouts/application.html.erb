@@ -3,13 +3,29 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <head>
   <title>School</title>
-       <p class="notice"><%= notice %></p>
-       <p class="alert"><%= alert %></p>
+       
+       <p class="alert-success"><%= notice %></p>
+       <p class="alert-error"><%= alert %></p>
 
 
   <%= stylesheet_link_tag "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
+
+
+<div class="row-fluid">
+  <div class="span3">
+    <% if user_signed_in? %>
+       Вы вошли как <%= current_user.email %>
+       <%= link_to "Выход", destroy_user_session_path, :method => :delete , :class => "btn btn-small"%>
+    <% else %>
+       <%= link_to "Зарегистрироватся", new_user_registration_path %> или <%= link_to "Войти", new_user_session_path %>
+    <% end %>
+  </div>
+</div>
+</br>
+
+
 </head>
 <body>
 <div class="container-fluid">
