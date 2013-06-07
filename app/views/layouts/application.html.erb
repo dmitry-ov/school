@@ -12,9 +12,9 @@
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 
-<div class="span2 offset8">
+<div class="span4 offset8">
   <% if user_signed_in? %>
-     <%= current_user.username %>
+     <%= current_user.username %> (<%= current_user.email %>)
      <%= link_to "Выход", destroy_user_session_path, :method => :delete, :class => "btn btn-mini" %>
   <% end %>
 </div>
