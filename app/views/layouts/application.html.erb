@@ -14,7 +14,7 @@
 
 <div class="span2 offset8">
   <% if user_signed_in? %>
-     <%= current_user.email %>
+     <%= current_user.username %>
      <%= link_to "Выход", destroy_user_session_path, :method => :delete, :class => "btn btn-mini" %>
   <% end %>
 </div>
