@@ -1,4 +1,7 @@
 School::Application.routes.draw do
+  resources :teachers
+
+
   devise_for :users, :path_names => {:sign_up => "register", :sign_in => "login" }
 
   resources :subjects

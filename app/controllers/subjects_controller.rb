@@ -46,7 +46,7 @@ class SubjectsController < ApplicationController
 
     respond_to do |format|
       if @subject.save
-        format.html { redirect_to @subject, notice: 'Subject was successfully created.' }
+        format.html { redirect_to action: "index", notice: 'Subject was successfully created.' }
         format.json { render json: @subject, status: :created, location: @subject }
       else
         format.html { render action: "new" }

@@ -2,4 +2,5 @@ class Subject < ActiveRecord::Base
   attr_accessible :subject
 
   has_and_belongs_to_many :learners
+  has_and_belongs_to_many :teachers
 end
